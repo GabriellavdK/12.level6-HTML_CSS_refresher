@@ -1,0 +1,111 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.grid-body {
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        " . profile1 . "
+        " . profile2 . ";
+}
+
+.grid-card:first-child {
+    grid-area: profile1;
+}
+
+.grid-card:nth-child(2) {
+    grid-area: profile2;
+}
+
+.grid-card {
+    display: grid;
+    grid-template-columns: 3.5fr 0.5fr;
+    grid-template-rows: 0.5fr 0.5fr 1 fr auto;
+    grid-template-areas:
+        " name image "
+        " sub image "
+        " p p "
+        " buttons buttons ";
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 1px lightgrey;
+    max-width: 350px;
+    margin: 30px auto 10px;
+}
+
+h1 {
+    grid-area: name;
+    margin: 10px 5px 0 15px;
+
+}
+
+h2 {
+    grid-area: sub;
+    color: rgb(177, 177, 177);
+    font-size: 16px;
+    margin: 5px 5px 0 15px;
+}
+
+img {
+    grid-area: image;
+    width: 50px;
+    margin: 10px 10px 0 0;
+}
+
+p {
+    grid-area: p;
+    font-size: 16px;
+    margin: 10px 5px 20px 15px;
+    color: grey;
+}
+
+.button-box {
+    grid-area: buttons;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid lightgrey;
+}
+
+button {
+    width: 45%;
+    height: 35px;
+    background-color: white;
+    border-width: 1px;
+    font-weight: 700;
+}
+
+button:first-child {
+    margin: 10px 0 10px auto;
+    border-radius: 5px 0 0 5px;
+    color: #21ba45;
+    border-style: solid none solid solid;
+    border-color: #21ba45;
+}
+
+button:last-of-type {
+    margin: 10px auto 10px 0;
+    border-radius: 0 5px 5px 0;
+    color: #db2828;
+    border-style: solid;
+    border-color: #db2828;
+}
+
+@media (min-width: 750px) {
+    .grid-body {
+        grid-template-columns: 20px 1fr 10px 1fr 20px;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            " . profile1 . profile2 . "
+    }
+
+    .grid-card:first-of-type {
+        margin: 30px 10px 10px auto;
+    }
+
+    section:last-of-type {
+        margin: 30px auto 10px 10px;
+    }
+}
